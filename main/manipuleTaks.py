@@ -45,5 +45,13 @@ def listAllTasks():
         print("All task: " , type(allTasks))
         print(allTasks[0]["name"])
 
-# createFileJson(taskRegistry)
+#Add new Task
+def addNewTask(task, allTasks):
+    allTasks.append(task)
+    return allTasks
+
+listOfTasks = [tasks]
+listOfTasksAdded = addNewTask(taskRegistry, listOfTasks)
+createFileJson(listOfTasksAdded)
 listAllTasks()
+
