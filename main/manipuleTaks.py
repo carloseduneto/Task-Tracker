@@ -6,19 +6,19 @@
 
 import json
 
-tasks = {
+tasks = [{
     "name": "Play games",
     "date": "24/07/2025",
     "progress": "not done",
     "priority": 5
-}
+}]
 
 json.dumps(tasks)
 print(tasks)
 
-name = "Write a code"
-date = "23/07/2025"
-priority = 2
+name = "Nobody stop nobody"
+date = "26/07/2025"
+priority = 4
 
 taskRegistry = {
     "name": name,
@@ -44,14 +44,33 @@ def listAllTasks():
         print("All task: " , allTasks)
         print("All task: " , type(allTasks))
         print(allTasks[0]["name"])
+        return allTasks
 
-#Add new Task
+#Add new Task to list
 def addNewTask(task, allTasks):
     allTasks.append(task)
     return allTasks
 
-listOfTasks = [tasks]
-listOfTasksAdded = addNewTask(taskRegistry, listOfTasks)
-createFileJson(listOfTasksAdded)
-listAllTasks()
+#Add new Task to JSON
+def addTaskToJson():
+    listOfTasks = listAllTasks()
+    listOfTasksAdded = addNewTask(taskRegistry, listOfTasks)
+    createFileJson(listOfTasksAdded)
+
+addTaskToJson()
+
+taskSelect = "Nobody stop nobody 2"
+newNameToTask = "Regular show"
+parameterToUpdate = "name"
+#Update tasks
+
+listOfTasks = listAllTasks()
+for i in range(len(listOfTasks)):
+    if(listOfTasks[i][parameterToUpdate]==taskSelect):
+        listOfTasks[i][parameterToUpdate] = newNameToTask
+print(listOfTasks)
+
+createFileJson(listOfTasks)
+
+
 
