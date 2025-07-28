@@ -16,5 +16,41 @@
         "date": "26/07/2025",
         "progress": "not done",
         "priority": 4
+    },
+    {
+        "name": "Frio",
+        "date": "26/07/2025",
+        "progress": "not done",
+        "priority": 2
+    },
+    {
+        "name": "Another Task",
+        "date": "26/07/2025",
+        "progress": "not done",
+        "priority": 2
+    },
+    {
+        "name": "Came back internet",
+        "date": "28/07/2025",
+        "progress": "not done",
+        "priority": 5
+    },
+    {
+        "name": "Await for a miracle",
+        "date": "21/06/2025",
+        "progress": "not done",
+        "priority": 4
+    },
+    {
+        "name": "Nobody cares about anything",
+        "date": "21/05/2025",
+        "progress": "not done",
+        "priority": 9
+    },
+    {
+        "name": "Hi five",
+        "date": "01/05/2026",
+        "progress": "not done",
+        "priority": 2
     }
 ]
