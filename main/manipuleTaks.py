@@ -143,6 +143,29 @@ while (option != 6):
             optionAdd = int(input(">>"))
             clear_terminal()
 
+    if(option == 2):
+        print(color.BOLD+ "TASK TRACKER - UPDATE TASK\n" + color.END)
+
+        allTasks = listAllTasks()
+        for i in range(len(allTasks)):
+            print(i+1,allTasks[i]["name"])
+        print("Enter the task number you want to update:")
+        numberTaskChoosen = int(input(">>"))
+        numberTaskChoosen = numberTaskChoosen-1
+        clear_terminal()
+
+        taskChoosen = allTasks[numberTaskChoosen]
+        taskNameChoosen = taskChoosen["name"]
+        
+        updateTasksJson(taskNameChoosen, input("New name \n>>"), "name")
+
+
+
+
+
+
+
+
 
 print(
     color.BOLD+ "TASK TRACKER - TO LIST\n" + color.END +
