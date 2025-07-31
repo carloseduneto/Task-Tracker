@@ -2,61 +2,55 @@
     {
         "name": "Do you think about person?",
         "date": "24/07/2025",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 5
     },
     {
         "name": "Sua printaf",
         "date": "26/07/2025",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 4
     },
     {
         "name": "I done with this",
         "date": "26/07/2025",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 4
     },
     {
-        "name": "Frio",
+        "name": "MWMWMW",
         "date": "26/07/2025",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 2
-    },
-    {
-        "name": "Another Task",
-        "date": "26/07/2025",
-        "progress": "not done",
-        "priority": 2
-    },
-    {
-        "name": "Came back internet",
-        "date": "28/07/2025",
-        "progress": "not done",
-        "priority": 5
     },
     {
         "name": "Await for a miracle",
         "date": "21/06/2025",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 4
     },
     {
         "name": "Nobody cares about anything",
         "date": "21/05/2025",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 9
     },
     {
         "name": "Hi five",
         "date": "01/05/2026",
-        "progress": "not done",
+        "progress": "Done",
         "priority": 2
     },
     {
-        "name": "Juliana",
+        "name": "End it all",
         "date": "03/05/2025",
-        "progress": "not done",
+        "progress": "In Progress",
         "priority": 3
+    },
+    {
+        "name": "Finish this code",
+        "date": "31/07/2025",
+        "progress": "Done",
+        "priority": 5
     }
 ]

@@ -74,7 +74,7 @@ parameter = "name"
 def updateTasksJson(taskSelect, newNameToTask, parameterToUpdate):
     listOfTasks = listAllTasks()
     for i in range(len(listOfTasks)):
-        if(listOfTasks[i][parameterToUpdate]==taskSelect):
+        if(listOfTasks[i]["name"]==taskSelect["name"]):
             listOfTasks[i][parameterToUpdate] = newNameToTask
     # print(listOfTasks)
 
@@ -89,6 +89,7 @@ def deleteTaskJson(taskSelect):
         if(listOfTasks[i]["name"]==taskSelect):
             listOfTasks.pop(i)
             print("Deleted Task!")
+            break
     createFileJson(listOfTasks)
 
 # addTaskToJson(taskRegistry)
@@ -147,19 +148,132 @@ while (option != 6):
         print(color.BOLD+ "TASK TRACKER - UPDATE TASK\n" + color.END)
 
         allTasks = listAllTasks()
+        print(
+            "COD ",
+            "DATE\t",
+            "PRIORITY\t",
+            "NAME\t",
+        )
         for i in range(len(allTasks)):
-            print(i+1,allTasks[i]["name"])
+            print(
+                  i+1, "",
+                  allTasks[i]["date"], "\t",
+                  allTasks[i]["priority"], "\t",
+                  allTasks[i]["name"]
+                  )
         print("Enter the task number you want to update:")
         numberTaskChoosen = int(input(">>"))
         numberTaskChoosen = numberTaskChoosen-1
+        taskChoosen = allTasks[numberTaskChoosen]
+        clear_terminal()
+        optionUpdate = int(input("What do you want to update?\n"+
+              "1. Date\n"+
+              "2. Priority\n"+
+              "3. Name\n"
+              ">>"
+              ))
+        clear_terminal()
+        
+
+        
+        if(optionUpdate==1):
+            updateTasksJson(taskChoosen, input("New date \n>>"), "date")
+            print(color.BOLD + color.GREEN + "✅ TASK SUCESSFUL UPDATE" + color.END)
+        elif(optionUpdate==2):
+            updateTasksJson(taskChoosen, input("New priority \n>>"), "priority")
+            print(color.BOLD + color.GREEN + "✅ TASK SUCESSFUL UPDATE" + color.END)
+        elif(optionUpdate==3):
+            updateTasksJson(taskChoosen, input("New name \n>>"), "name")
+            print(color.BOLD + color.GREEN + "✅ TASK SUCESSFUL UPDATE" + color.END)
+
+    if(option==3):
+        print(color.BOLD+ "TASK TRACKER - DELETE TASK\n" + color.END)
+
+        allTasks = listAllTasks()
+        print(
+            "COD ",
+            "DATE\t",
+            "PRIORITY\t",
+            "NAME\t",
+            "PROGRESS\t",
+        )
+        for i in range(len(allTasks)):
+            print(
+                  i+1, "",
+                  allTasks[i]["date"], "\t",
+                  allTasks[i]["priority"], "\t",
+                  allTasks[i]["name"], "\t",
+                  allTasks[i]["progress"], "\t"
+                  )
+        print("Enter the task number you want to delete:")
+        numberTaskChoosen = int(input(">>"))
+        taskChoosen = allTasks[numberTaskChoosen-1]
+        deleteTaskJson(taskChoosen["name"])
+
+    if(option == 4):
+        print(color.BOLD+ "TASK TRACKER - LIST ALL TASKS\n" + color.END)
+
+        allTasks = listAllTasks()
+        print(
+            "COD ",
+            "DATE\t",
+            "PRIORITY\t",
+            "PROGRESS\t",
+            "NAME\t"
+        )
+        for i in range(len(allTasks)):
+            print(
+                  i+1, "",
+                  allTasks[i]["date"], "\t",
+                  allTasks[i]["priority"], "\t",
+                  allTasks[i]["progress"], "\t",
+                  allTasks[i]["name"], "\t"
+                  )
+        listOption = ""
+        while (listOption != 0):
+            listOption = int(input("\n0. Back\n >>"))
         clear_terminal()
 
-        taskChoosen = allTasks[numberTaskChoosen]
-        taskNameChoosen = taskChoosen["name"]
+    if(option == 5):
+        print(color.BOLD+ "TASK TRACKER - UPDATE TASK\n" + color.END)
+
+        allTasks = listAllTasks()
+        print(
+            "COD ",
+            "DATE\t",
+            "PRIORITY\t",
+            "PROGRESS\t",
+            "NAME\t",
+        )
+        for i in range(len(allTasks)):
+            print(
+                  i+1, "",
+                  allTasks[i]["date"], "\t",
+                  allTasks[i]["priority"], "\t",
+                  allTasks[i]["progress"], "\t",
+                  allTasks[i]["name"]
+                  )
+        print("Enter the task number you want to update progress:")
+        numberTaskChoosen = int(input(">>"))
+        taskChoosen = allTasks[numberTaskChoosen-1]
+
+        progressUpdate = int(input("What do you want to change?\n"+
+              "1. Not done\n"+
+              "2. In Progress\n"+
+              "3. Done\n"
+              ">>"
+              ))
+        clear_terminal()
+
+        progressList=["Not done", "In Progress", "Done"]
+
+
         
-        updateTasksJson(taskNameChoosen, input("New name \n>>"), "name")
 
 
+
+        updateTasksJson(taskChoosen, progressList[progressUpdate-1], "progress")
+        print(color.BOLD + color.GREEN + "✅ TASK SUCESSFUL UPDATE PROGRESS" + color.END)
 
 
 
