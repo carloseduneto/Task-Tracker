@@ -18,6 +18,7 @@ tasks = [{
     "progress": "not done",
     "priority": 5
 }]
+progressList=["Not done", "In Progress", "Done"]
 
 # json.dumps(tasks)
 # print(tasks)
@@ -29,7 +30,7 @@ priority = 2
 taskRegistry = {
     "name": name,
     "date": date,
-    "progress": "not done",
+    "progress": progressList[0],
     "priority": priority
 }
 
@@ -212,6 +213,13 @@ while (option != 6):
 
     if(option == 4):
         print(color.BOLD+ "TASK TRACKER - LIST ALL TASKS\n" + color.END)
+        optionList =int( input("Choose option to list:\n"+
+                           "1. All\n"+
+                           "2. Not done Tasks\n"+
+                           "3. In progress Tasks\n"+
+                           "4. Done Tasks\n"+
+                           ">>"
+                           ))
 
         allTasks = listAllTasks()
         print(
@@ -222,16 +230,25 @@ while (option != 6):
             "NAME\t"
         )
         for i in range(len(allTasks)):
-            print(
-                  i+1, "",
-                  allTasks[i]["date"], "\t",
-                  allTasks[i]["priority"], "\t",
-                  allTasks[i]["progress"], "\t",
-                  allTasks[i]["name"], "\t"
-                  )
-        listOption = ""
-        while (listOption != 0):
-            listOption = int(input("\n0. Back\n >>"))
+            if(allTasks[i]["progress"]==progressList[optionList-2]):
+                print(
+                    i+1, "",
+                    allTasks[i]["date"], "\t",
+                    allTasks[i]["priority"], "\t",
+                    allTasks[i]["progress"], "\t",
+                    allTasks[i]["name"], "\t"
+                    )
+            elif(optionList==1):
+                print(
+                    i+1, "",
+                    allTasks[i]["date"], "\t",
+                    allTasks[i]["priority"], "\t",
+                    allTasks[i]["progress"], "\t",
+                    allTasks[i]["name"], "\t"
+                    )
+        listOptionEnd = ""
+        while (listOptionEnd != 0):
+            listOptionEnd = int(input("\n0. Back\n >>"))
         clear_terminal()
 
     if(option == 5):
@@ -265,7 +282,6 @@ while (option != 6):
               ))
         clear_terminal()
 
-        progressList=["Not done", "In Progress", "Done"]
 
 
         
